@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="content">
+        <ul class="list">
+            <div *ngFor="let todo of (todoList$ | async)!.todos" #total="">
+                <app-todo-item [todo]="todo"></app-todo-item>
+            </div>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  background-color: #b8f1b0;
+  width: 40%;
+  padding-bottom: 2rem;
+}
+.title {
+  margin: 1rem 0;
+  color: #e3fcbf;
+  text-align: center;
+}
+
+.list {
+  height: 25rem;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.list::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

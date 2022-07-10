@@ -1,0 +1,27 @@
+.nav-bar {
+  height: 4rem;
+  padding: 0 3rem;
+  background-color: #b8f1b0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". title favorite";
+  align-items: center;
+}
+
+.title {
+  grid-area: title;
+  color: #14c38e;
+  justify-self: center;
+}
+
+.favorite {
+  grid-area: favorite;
+  color: red;
+  justify-self: right;
+  cursor: pointer;
+}
+
+.favorite:hover {
+  color: #14c38e;
+}
