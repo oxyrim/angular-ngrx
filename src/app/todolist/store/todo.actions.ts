@@ -9,9 +9,7 @@ export const START_POST_TODO = '[Todo] Start POST Todo';
 
 export class StartPostTodo implements Action {
   readonly type: string = START_POST_TODO;
-  constructor(public payload: Todo) {
-    // console.log(this.payload);
-  }
+  constructor(public payload: Todo) {}
 }
 
 export class AddTodo implements Action {

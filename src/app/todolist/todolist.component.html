@@ -1,9 +1,13 @@
 <div class="container">
     <div class="content">
+        <h1 class="title">Todos | {{total}}</h1>
         <ul class="list">
-            <div *ngFor="let todo of (todoList$ | async)!.todos" #total="">
+            <div *ngFor="let todo of todoList">
                 <app-todo-item [todo]="todo"></app-todo-item>
             </div>
+            <!-- <div *ngFor="let todo of (todoList$ | async)!.todos">
+                <app-todo-item [todo]="todo"></app-todo-item>
+            </div> -->
         </ul>
     </div>
 </div>

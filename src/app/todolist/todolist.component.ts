@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Todo } from './todo.interface';
 import * as fromTodoReducer from './store/todo.reducer';
 import { StartLoadTodos } from './store/todo.actions';
@@ -11,32 +11,23 @@ import { StartLoadTodos } from './store/todo.actions';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit, OnDestroy {
-  todoList$: Observable<{ todos: Todo[] }>;
-  // total: number = 0;
-  // todoSubscription!: Subscription;
-  // totalSubscription!: Subscription;
+  todoList?: Todo[];
+  total: number = 0;
+  todoSubscription!: Subscription;
 
-  constructor(private store: Store<fromTodoReducer.AppState>) {
-    this.todoList$ = this.store.select('Todos');
-  }
+  constructor(private store: Store<fromTodoReducer.AppState>) {}
 
   ngOnInit(): void {
+    this.todoSubscription = this.store
+      .select('Todos')
+      .subscribe((todos: { todos: Todo[] }) => {
+        this.total = todos.todos.length;
+        this.todoList = todos.todos;
+      });
     this.store.dispatch(new StartLoadTodos());
-    // this.todoServices.getTodo();
-    // this.todoSubscription = this.todoServices.todosSubject.subscribe(
-    //   (todos: Todo[]) => {
-    //     this.todoList = [...todos];
-    //   }
-    // );
-    // this.totalSubscription = this.todoServices.totalTodosSubject.subscribe(
-    //   (total: number) => {
-    //     this.total = total;
-    //   }
-    // );
   }
 
   ngOnDestroy(): void {
-    // this.todoSubscription.unsubscribe();
-    // this.totalSubscription.unsubscribe();
+    this.todoSubscription.unsubscribe();
   }
 }
