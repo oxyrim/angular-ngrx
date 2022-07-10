@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AddTodo, StartPostTodo } from '../store/todo.actions';
+import { StartPostTodo } from '../store/todo.actions';
 import { Todo } from '../todo.interface';
 import * as fromTodoReducer from '../store/todo.reducer';
 

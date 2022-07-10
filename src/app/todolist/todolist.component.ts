@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Todo } from './todo.interface';
 import * as fromTodoReducer from './store/todo.reducer';
 import { StartLoadTodos } from './store/todo.actions';
